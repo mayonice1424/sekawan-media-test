@@ -4,6 +4,7 @@ import ThemeToogle from "@/components/theme/themeToogle/ThemeToogle";
 import LoginForm from "./useFormLogin";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
+import { error } from "console";
 const Login = () => {
   const data = LoginForm();
   return (
@@ -48,19 +49,18 @@ const Login = () => {
                     </label>
                     <input
                       {...data.register("email", {
-                        required: "email is required.",
+                        required: "Email is required.",
                       })}
                       type="email"
                       id="email"
                       className={`bg-gray-50 border ${
-                        data.errors.password
-                          ? "border-red-500"
-                          : "border-gray-300"
+                        data.errors.password ? 'border-red-500' : 'border-gray-300'
                       } border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
                       placeholder="john.doe@company.com"
-                      required
                     />
                   </div>
+                  {data.errors.email && <p className="text-red-500">{data.errors.email.message}</p>}
+
                   <div className="mb-2">
                     <label
                       htmlFor="password"
@@ -72,16 +72,17 @@ const Login = () => {
                       <input
                         type={data.active ? "text" : "password"}
                         id="password"
-                        {...data.register("password", {
-                          required: "password is required.",
+                        placeholder="•••••••••"
+                        {...data.register('password', {
+                          required: 'Password is required',
+                          minLength: {
+                            value: 8,
+                            message: 'Password must be at least 8 characters'
+                          }
                         })}
                         className={`bg-gray-50 border ${
-                          data.errors.password
-                            ? "border-red-500"
-                            : "border-gray-300"
+                          data.errors.password ? 'border-red-500' : 'border-gray-300'
                         } border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
-                        placeholder="•••••••••"
-                        required
                       />
                       <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
                         {data.active ? (
@@ -97,6 +98,7 @@ const Login = () => {
                         )}
                       </div>
                     </div>
+                      {data.errors.password && <p className="text-red-500">{data.errors.password.message}</p>}
                   </div>
                   <button
                     type="submit"
