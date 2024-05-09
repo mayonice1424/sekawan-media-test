@@ -12,9 +12,6 @@ import { AddFormTicket } from "../../components/ticket/ticketAdd";
 
 const Ticket = () => {
   useCheckLogin();
-  const handleAddData = () => {
-    
-  };
   const data = GetDataTicket();
   console.log("buset", data.dataTicketTable);
   const columns: Column<PropsData>[] = data.headerData.map((columnName) => {

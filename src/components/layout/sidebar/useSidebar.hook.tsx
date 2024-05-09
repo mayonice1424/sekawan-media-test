@@ -101,7 +101,8 @@ const GetDataSidebar = () => {
       setExtend,
       innerHeight,
       setInnerHeight,
-      handleLogOut
+      handleLogOut,
+      isAdmin
     }
 }
 export default GetDataSidebar;

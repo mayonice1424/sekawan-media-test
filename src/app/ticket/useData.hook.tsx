@@ -38,7 +38,6 @@ const GetDataTicket = () => {
   const headerData: Array<string> = ["Ticket Detail", "Customer Name", "Date", "Priority"];
   const handleFilter = (event: { target: { value: any } }) => {
     const { value } = event.target;
-    console.log('yahahhaha',value)
     const filteredData = dataTicketTable.filter(
       (data) =>
         data.ticketDetail.toLowerCase().includes(value.toLowerCase()) ||
