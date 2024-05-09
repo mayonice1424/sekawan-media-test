@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
 
 type TicketItem = {
   id: number;
@@ -7,7 +7,7 @@ type TicketItem = {
   date: string;
   priority: string;
   status: string;
-  condition: string,
+  condition: string;
 };
 
 type DataState = {
@@ -18,47 +18,49 @@ const initialState: DataState = {
   data: [
     {
       id: 1,
-      ticketDetail: 'contact',
-      customerName: 'Tom Cruise',
+      ticketDetail: "contact",
+      customerName: "Tom Cruise",
       date: "2015-03-25",
-      priority:'High', 
-      status:'Approve',
-      condition: 'Overdue'
+      priority: "High",
+      status: "Approve",
+      condition: "Overdue",
     },
     {
       id: 2,
-      ticketDetail: 'contact email not linked',
-      customerName: 'Tom And Jerry',
+      ticketDetail: "contact email not linked",
+      customerName: "Tom And Jerry",
       date: "2015-03-25",
-      priority:'High', 
-      status:'Reject',
-      condition: 'Unresolve'
+      priority: "High",
+      status: "Reject",
+      condition: "Unresolve",
     },
     {
       id: 3,
-      ticketDetail: 'contact email not linked',
-      customerName: 'Tom Alexandra',
+      ticketDetail: "contact email not linked",
+      customerName: "Tom Alexandra",
       date: "2015-03-25",
-      priority:'High', 
-      status:'Reject',
-      condition: 'Unresolve'
-    }
-  ], 
+      priority: "High",
+      status: "Reject",
+      condition: "Unresolve",
+    },
+  ],
 };
 
 export const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    setDataTicket: (state, action) => {
+    readData: (state, action) => {
       return {
         ...state,
         data: action.payload,
       };
     },
+    addData: (state, action: PayloadAction<TicketItem>) => {
+      state.data.push(action.payload);
+    },
   },
 });
 
-export const { setDataTicket } = dataSlice.actions;
-
+export const { readData, addData } = dataSlice.actions;
 export default dataSlice.reducer;

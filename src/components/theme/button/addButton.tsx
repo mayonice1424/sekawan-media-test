@@ -11,9 +11,9 @@ interface AddButtonProps {
 const AddButton: React.FC<AddButtonProps> = ({ text, onClick, className }) => {
   return (
     <button
-      className={`bg-transparent font-button outline-4 transition-colors outline-none outline-blue-500 hover:bg-blue-500 text-blue-500 hover:text-white font-bold py-2 px-4 rounded flex items-center gap-2 ${className}`}
-      type="button"
-      onClick={onClick}
+    className={`bg-transparent font-button  outline-2 transition-colors outline-none outline-blue-500 hover:bg-blue-500 text-blue-500 hover:text-white font-medium rounded flex items-center gap-1 ${className}`}
+    type="button"
+    onClick={onClick}
     >
       <BsPlusLg /> {text}
     </button>

@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { RootState } from "@/redux/store";
-import { setDataTicket } from "@/redux/slice/dataSlice";
+import { readData } from "@/redux/slice/dataSlice";
 
 export interface PropsData {
   id: number;
@@ -26,9 +26,10 @@ const GetDataTicket = () => {
   const dispatch = useDispatch();
   const patchData = (data: PropsDataArray) =>{
     console.log(data)
-    dispatch(setDataTicket(data))
+    dispatch(readData(data))
   }
-  
+  const [isVisibleAddModal, setIsVisibleAddModal] = useState(false);
+
   const [records, setRecords] = useState<PropsData[]>([]);
   const dataTable = useSelector(
     (state: RootState) => state.data.data
@@ -47,6 +48,7 @@ const GetDataTicket = () => {
     );
     setRecords(filteredData);
   };
+
   useEffect(() => {
     setDataTicketTable(dataTable); 
     setRecords(dataTable); 
@@ -59,7 +61,9 @@ const GetDataTicket = () => {
     setDataTicketTable,
     records,
     setRecords,
-    handleFilter
+    handleFilter,
+    isVisibleAddModal,
+    setIsVisibleAddModal,
   }
 }
 

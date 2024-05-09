@@ -56,6 +56,7 @@ const GetDataSidebar = () => {
   }
   
   console.log(pathName)
+  const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
     handleRouteChange()
     getSecondSegment()
@@ -64,21 +65,32 @@ const GetDataSidebar = () => {
     const handleResize = () => {
       setInnerHeight(window.innerHeight);
     };
+    const delay = setTimeout(() => {
+      const userRole = localStorage.getItem('role');
+      setIsAdmin(userRole === 'admin');
+    }, 1000); 
+
+    return () => clearTimeout(delay);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [pathName]);
-  const menu: PropsNavbar[] = [
+
+  
+  let menu: PropsNavbar[] = [
     {
       icon: <HiMiniHome className={`w-5 h-5`} />,
       name: 'Overview',
       link: '/',
-    },
-    {
+    }
+  ];
+  
+  if (isAdmin) {
+    menu.push({
       icon: <FaTicket className="w-5 h-5 "/>,
       name: 'Ticket',
       link: '/ticket',
-    },
-  ];
+    });
+  }
   const secondSegment = getSecondSegment();
   return {
       menu,
