@@ -1,0 +1,38 @@
+.square{
+  position: relative;
+  overflow: hidden;
+}
+
+.square h3{
+z-index: 2;
+}
+
+.square::before {
+  content:'' !important;
+  position: absolute !important;
+  padding-right: 2.5rem !important;
+  display:flex !important;
+  width: 40rem !important;
+  height:100% !important;
+  padding-left: 2.5rem !important;
+  background: linear-gradient(#fefefefe,#fefefefe) !important;
+  animation: rotate 4s linear infinite;
+}
+
+.square::after {
+  content:'' !important;
+  position: absolute !important;
+  inset: 3px !important;
+  background: #303030 !important;
+  border-radius: 9999px;;
+}
+
+
+@keyframes rotate {
+  from{
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
