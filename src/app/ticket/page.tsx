@@ -114,13 +114,15 @@ const Ticket = () => {
                   onClick={() => data.setIsVisibleAddModal(!data.isVisibleAddModal)}
                 />
               </div>
+              <div className="border-2 border-slate-300">
               <DataTable
                 columns={columns}
                 data={data.records}
                 pagination
                 responsive
                 highlightOnHover
-              />
+                />
+                </div>
             </>
           </div>
         </div>

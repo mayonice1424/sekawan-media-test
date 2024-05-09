@@ -36,7 +36,7 @@ const Navbar = () => {
               />
             </div>
             <div className="lg:w-15 w-full  lg:hidden flex justify-center items-center">
-              <h6 className="lg:text-medium lg:dark:text-medium dark:text-white text-sm text-white font-semibold">Develoment Kit</h6>
+              <h6 className="lg:text-medium lg:dark:text-medium text-medium dark:text-gray-500 text-sm font-semibold">Develoment Kit</h6>
             </div>
           </div>
           <div className="lg:flex hidden justify-center items-center">
