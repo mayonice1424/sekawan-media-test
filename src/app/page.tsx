@@ -6,8 +6,10 @@ import { useCheckLogin } from "@/middleware/useCheckLogin";
 import Modal from "@/components/modal/modalSmall/modal";
 import { AddFormTicket } from "@/components/ticket/ticketAdd";
 import GetDataSidebar from "@/components/layout/sidebar/useSidebar.hook";
+import GetOverViewData from "@/components/overview/useOverview.hook";
 const Overview = () => {
   useCheckLogin();
+  const overview = GetOverViewData()
   const data = GetDataTicket();
   const checkAdmin = GetDataSidebar();
   return (
@@ -50,7 +52,7 @@ const Overview = () => {
                     />
                   </div>
                   <div>
-                    <h5>Guest Just Have Authoritize to Create Ticket</h5>
+                    <h5 >Guest Just Have Authoritize to Create Ticket</h5>
                   </div>
                 </div>
               )}
@@ -59,25 +61,25 @@ const Overview = () => {
               <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
                 <div>
                   <h6>Unresolve</h6>
-                  <h5>Unresolve</h5>
+                  <h5  className="text-center">{overview.unresolve}</h5>
                 </div>
               </div>
               <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
                 <div>
                   <h6>Overdue</h6>
-                  <h5>Overdue</h5>
+                  <h5  className="text-center">{overview.overdue}</h5>
                 </div>
               </div>{" "}
               <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
                 <div>
                   <h6>Open</h6>
-                  <h5>Open</h5>
+                  <h5  className="text-center">{overview.open}</h5>
                 </div>
               </div>{" "}
               <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
                 <div>
                   <h6>On Hold</h6>
-                  <h5>On Hold</h5>
+                  <h5 className="text-center">{overview.onHold}</h5>
                 </div>
               </div>
             </div>
