@@ -39,7 +39,32 @@ const Overview = () => {
           <div className={`w-full flex h-full md:px-10 px-2`}>
             <>
               {checkAdmin.isAdmin === true ? (
-                ""
+                 <div className=" w-full flex-wrap flex h-1/3  justify-evenly">
+                 <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
+                   <div>
+                     <h6>Unresolve</h6>
+                     <h5  className="text-center">{overview.unresolve}</h5>
+                   </div>
+                 </div>
+                 <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
+                   <div>
+                     <h6>Overdue</h6>
+                     <h5  className="text-center">{overview.overdue}</h5>
+                   </div>
+                 </div>{" "}
+                 <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
+                   <div>
+                     <h6>Open</h6>
+                     <h5  className="text-center">{overview.open}</h5>
+                   </div>
+                 </div>{" "}
+                 <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
+                   <div>
+                     <h6>On Hold</h6>
+                     <h5 className="text-center">{overview.onHold}</h5>
+                   </div>
+                 </div>
+               </div>
               ) : (
                 <div className="w-full h-full flex-col justify-around items-center flex ">
                   <div>
@@ -57,32 +82,6 @@ const Overview = () => {
                 </div>
               )}
             </>
-            <div className=" w-full flex-wrap flex h-1/3  justify-evenly">
-              <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
-                <div>
-                  <h6>Unresolve</h6>
-                  <h5  className="text-center">{overview.unresolve}</h5>
-                </div>
-              </div>
-              <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
-                <div>
-                  <h6>Overdue</h6>
-                  <h5  className="text-center">{overview.overdue}</h5>
-                </div>
-              </div>{" "}
-              <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
-                <div>
-                  <h6>Open</h6>
-                  <h5  className="text-center">{overview.open}</h5>
-                </div>
-              </div>{" "}
-              <div className="shadow-md rounded-lg w-60 h-28 justify-center flex items-center">
-                <div>
-                  <h6>On Hold</h6>
-                  <h5 className="text-center">{overview.onHold}</h5>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </main>
